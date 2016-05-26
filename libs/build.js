@@ -24,7 +24,7 @@ module.exports = {
 
         // Do certain things for certain environments
         switch ( this.env ) {
-            'production':
+            case 'production':
                 options.sass.outputStyle = 'compressed';
                 break;
         }
