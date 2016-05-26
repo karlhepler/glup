@@ -9,7 +9,7 @@ module.exports = require('gulp-load-plugins')({
         'lost',
         'bower-files'
     ],
-    scope: ['devDependencies'],
+    scope: ['dependencies'],
     rename: {
         'gulp-if': 'gif',
         'gulp-uglify': 'uglify',
