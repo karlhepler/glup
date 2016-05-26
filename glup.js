@@ -78,7 +78,7 @@ function compileSass() {
  */
 function gulpWatch() {
     // Watch scripts
-    gulp.watch(options.watch.scripts, ['scripts'])
+    gulp.watch(options.paths.watch.scripts, ['scripts'])
         .on('change', function scriptsChanged(event) {
             if ( event.type == 'deleted' ) {
                 delete plugins.cached.caches.scripts[event.path];
@@ -87,10 +87,10 @@ function gulpWatch() {
         });
 
     // Watch sass
-    gulp.watch(options.watch.sass, ['sass']);
+    gulp.watch(options.paths.watch.sass, ['sass']);
 
     // Watch things that we need to reload the browser for
-    gulp.watch(options.watch.reloaders, plugins.browserSync.reload);
+    gulp.watch(options.paths.watch.reloaders, plugins.browserSync.reload);
 
     // Watch pub.json
     gulp.watch(options.paths.pub, ['default'])

@@ -1,6 +1,6 @@
 {
   "name": "glup",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "This is my own little gulp runner",
   "main": "glup.js",
   "scripts": {
