@@ -2,7 +2,7 @@
 var gulp = require('gulp');
 var plugins = require('./libs/plugins.js');
 var defaults = require('./libs/defaults.js');
-var build = require('./libs/build.js').init(plugins.notify);
+var build = require('./libs/build.js');
 var options;
 
 // Define & export our buddy, glup
@@ -127,3 +127,4 @@ function handleGulpErrors(error) {
     // Tell gulp to go to the end
     this.emit('end');
 }
+
