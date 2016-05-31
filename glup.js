@@ -2,13 +2,14 @@
 var gulp = require('gulp');
 var plugins = require('./libs/plugins.js');
 var defaults = require('./libs/defaults.js');
-var build = require('./libs/build.js');
+var build = require('./libs/build.js').init(plugins.notify);
 var options;
 
 // Define & export our buddy, glup
 module.exports = function glup(config) {
     // Define options as an extension of config & defaults
     options = plugins.extend(true, {}, defaults, config || {});
+    options.plumber.errorHandler = handleGulpErrors;
 
     // Setup allScripts, which includes bower plugins
     options.paths.sources.allScripts = plugins.bower().dev().ext('js').files.concat(options.paths.sources.scripts);
@@ -111,4 +112,18 @@ function gulpPhp() {
             proxy: `${options.php.hostname}:${options.php.port}`
         });
     });
+}
+
+/**
+ * Handle gulp errors
+ */
+function handleGulpErrors(error) {
+    // Configure the error message
+    notify.onError({
+        title: `${error.name}: ${error.plugin}`,
+        message: '<%= error.message %>'
+    })(error);
+
+    // Tell gulp to go to the end
+    this.emit('end');
 }

@@ -4,18 +4,7 @@ module.exports = {
     jshint: {
         esversion: 6
     },
-    plumber: {
-        errorHandler: function handleGulpErrors(error) {
-            // Configure the error message
-            notify.onError({
-                title: `${error.name}: ${error.plugin}`,
-                message: '<%= error.message %>'
-            })(error);
-
-            // Tell gulp to go to the end
-            this.emit('end');
-        }
-    },
+    plumber: {},
     php: {
         base: 'public',
         hostname: '127.0.0.1',
