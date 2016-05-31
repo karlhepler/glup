@@ -24,8 +24,8 @@ module.exports = {
     paths: {
         pub: 'pub.json',
         sources: {
-            sass: 'resources/sass/app.sass',
-            scripts: 'resources/scripts/**/*.js'
+            sass: 'resources/assets/sass/app.sass',
+            scripts: 'resources/assets/scripts/**/*.js'
         },
         builds: {
             sass: {
@@ -38,8 +38,8 @@ module.exports = {
             }
         },
         watch: {
-            scripts: 'resources/scripts/**/*.js',
-            sass: 'resources/sass/**/*.sass',
+            scripts: 'resources/assets/scripts/**/*.js',
+            sass: 'resources/assets/sass/**/*.sass',
             reloaders: [
                 'public/assets/templates/**/*.html',
                 'resources/views/**/*.blade.php',
