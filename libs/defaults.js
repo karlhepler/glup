@@ -2,7 +2,8 @@ module.exports = {
     sass: {},
     autoprefixer: {},
     jshint: {
-        esversion: 6
+        esversion: 6,
+        laxbreak: true
     },
     plumber: {},
     php: {
