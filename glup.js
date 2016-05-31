@@ -119,7 +119,7 @@ function gulpPhp() {
  */
 function handleGulpErrors(error) {
     // Configure the error message
-    notify.onError({
+    plugins.notify.onError({
         title: `${error.name}: ${error.plugin}`,
         message: '<%= error.message %>'
     })(error);
