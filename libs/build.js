@@ -20,7 +20,7 @@ module.exports = {
         var json = jsonfile.readFileSync(options.paths.pub);
 
         // Initialize the environment & config
-        this.config = extend(true, {}, json['*'], json[environment()]);
+        this.config = extend(true, {}, json['*'], json[environment.bind(this)()]);
 
         // Do certain things for certain environments
         switch ( this.env ) {
