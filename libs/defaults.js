@@ -29,7 +29,11 @@ module.exports = {
         },
         watch: {
             scripts: 'resources/assets/scripts/**/*.js',
-            sass: 'resources/assets/sass/**/*.sass',
+            sass: [
+                'resources/assets/sass/**/*.sass',
+                'resources/assets/sass/**/*.scss',
+                'resources/assets/sass/**/*.css'
+            ],
             reloaders: [
                 'public/assets/templates/**/*.html',
                 'resources/views/**/*.blade.php',
