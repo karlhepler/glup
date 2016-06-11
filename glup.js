@@ -45,7 +45,8 @@ function compileScripts() {
         .pipe(plugins.babel({ presets: ['es2015'] }))
         .pipe(filter.restore)
         .pipe(plugins.remember('scripts'))
-        .pipe(plugins.gif(!plugins.yargs.argv.production, plugins.concat(options.paths.builds.scripts.filename), plugins.uglify(options.paths.builds.scripts.filename)))
+        .pipe(plugins.concat(options.paths.builds.scripts.filename))
+        .pipe(plugins.gif(plugins.yargs.argv.production, plugins.uglify()))
         .pipe(plugins.gif(!plugins.yargs.argv.production, plugins.sourcemaps.write()))
         .pipe(gulp.dest(`${options.paths.builds.scripts.base}/${build.config.paths.js}`))
         .pipe(plugins.notify({
@@ -127,4 +128,3 @@ function handleGulpErrors(error) {
     // Tell gulp to go to the end
     this.emit('end');
 }
-
