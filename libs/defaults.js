@@ -3,7 +3,8 @@ module.exports = {
     autoprefixer: {},
     jshint: {
         esversion: 6,
-        laxbreak: true
+        laxbreak: true,
+        "-W086": true // Allow switch/case fall-through
     },
     plumber: {},
     php: {
