@@ -48,7 +48,7 @@ function compileScripts() {
         .pipe(plugins.concat(options.paths.builds.scripts.filename))
         .pipe(plugins.gif(plugins.yargs.argv.production, plugins.uglify()))
         .pipe(plugins.gif(!plugins.yargs.argv.production, plugins.sourcemaps.write()))
-        .pipe(gulp.dest(`${options.paths.builds.scripts.base}/${build.config.paths.js}`))
+        .pipe(gulp.dest(`${options.paths.builds.scripts.base}/${build.config.outputPaths.js}`))
         .pipe(plugins.notify({
             title: 'Scripts Compiled',
             message: `Environment: ${build.env.toUpperCase()}`
@@ -67,7 +67,7 @@ function compileSass() {
         .pipe(plugins.postcss([plugins.lost()]))
         .pipe(plugins.gif(!plugins.yargs.argv.production, plugins.sourcemaps.write()))
         .pipe(plugins.autoprefixer(options.autoprefixer))
-        .pipe(gulp.dest(`${options.paths.builds.sass.base}/${build.config.paths.css}`))
+        .pipe(gulp.dest(`${options.paths.builds.sass.base}/${build.config.outputPaths.css}`))
         .pipe(plugins.browserSync.stream())
         .pipe(plugins.notify({
             title: 'SASS Compiled',
